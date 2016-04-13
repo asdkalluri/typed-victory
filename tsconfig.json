@@ -1,0 +1,6 @@
+{
+  "files": [
+    "typings/browser.d.ts",
+    "victory.d.ts"
+  ]
+}

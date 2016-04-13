@@ -1,0 +1,10 @@
+{
+  "name": "victory",
+  "version": "0.5.1",
+  "main": "victory.d.ts",
+  "author": "Alex Pyzhianov",
+  "ambient": false,
+  "ambientDependencies": {
+    "react": "registry:dt/react#0.14.0+20160412154040"
+  }
+}
