@@ -5,6 +5,7 @@
 
 declare namespace Victory {
   import React = __React;
+
   /* VictoryAnimate */
   interface VictoryAnimationProps {
     // children: ???
@@ -15,7 +16,24 @@ declare namespace Victory {
     data?: any[]; // UNCLEAR
   }
 
-  class VictoryAnimation extends React.Component<VictoryAnimationProps, any> {
+  class VictoryAnimation extends React.Component<VictoryAnimationProps, void> {
+  }
+
+  /* VictoryChart */
+  interface VictoryChartProps {
+    animate?: VictoryAnimationProps;
+    domain?: Custom|Shape;
+    domainPadding?: Custom|Shape;
+    // events
+    width?: Custom;
+    height?: Custom;
+    padding?: number|Shape;
+    scale?: Custom|Shape;
+    standalone?: boolean;
+    style?: Stack;
+  }
+
+  class VictoryChart extends React.Component<VictoryChartProps, void> {
   }
 
   /* VictoryLine */
@@ -69,7 +87,7 @@ declare namespace Victory {
     animate?: VictoryAnimationProps;
   }
 
-  class VictoryLine extends React.Component<VictoryLineProps, any> {
+  class VictoryLine extends React.Component<VictoryLineProps, void> {
   }
 }
 
