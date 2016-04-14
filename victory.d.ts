@@ -6,6 +6,17 @@
 declare namespace Victory {
   import React = __React;
 
+  interface PerAxis<T> {
+    x: T;
+    y: T;
+  }
+
+  interface ScaleFunction { // Unclear, see d3 typings
+    copy: Function;
+    domain: Function;
+    range: Function;
+  }
+
   /* VictoryAnimate */
   interface VictoryAnimationProps {
     // children: ???
@@ -30,17 +41,17 @@ declare namespace Victory {
     padding?: number|Shape;
     scale?: Custom|Shape;
     standalone?: boolean;
-    style?: Stack;
+    style?: ParentDataLabel;
   }
 
   class VictoryChart extends React.Component<VictoryChartProps, void> {
   }
 
   /* VictoryLine */
-  interface Stack {
-    parent: any; // UNCLEAR
-    data: any; // UNCLEAR
-    labels: any; // UNCLEAR
+  interface ParentDataLabel {
+    parent: React.Component<void, void>; // UNCLEAR
+    data: React.Component<void, void>; // UNCLEAR
+    labels: React.Component<void, void>; // UNCLEAR
   }
 
   interface EventHandler {
@@ -67,24 +78,26 @@ declare namespace Victory {
       'linear' | 'linearClosed' | 'monotoneX' | 'monotoneY' |
       'natural' | 'radial' | 'step' | 'stepAfter' | 'stepBefore';
 
-  type DataAccessor = string | string[] | ((data: any[]) => number) | Custom;
+  type DataAccessor = string | string[] | ((data: any[]) => number) | number; // integer non-negative
 
   interface VictoryLineProps {
     data?: any[];
+    dataComponent?: React.Component<VictoryLineProps, void>; // Prop unclear
     x?: DataAccessor;
     y?: DataAccessor;
-    domain?: Custom|Shape;
-    padding?: number|Shape;
-    width?: Custom;
-    height?: Custom;
-    samples?: Custom;
+    domain?: number[] | PerAxis<number[]>; // Two unique
+    padding?: number | { top?: number, bottom?: number, left?: number, right?: number }; // UNCLEAR Maybe not optional
+    width?: number; // Non-negative
+    height?: number; // Non-negative
+    samples?: number; // Non-negative
     interpolation?: Interpolation;
-    scale?: Custom|Shape;
-    label?: any; // UNCLEAR
+    scale?: 'linear' | 'time' | 'log' | 'sqrt' | ScaleFunction;
+    label?: string | number | React.Component<void, void>; // UNCLEAR Label and too constrained now
     standalone?: boolean;
-    style?: Stack;
-    events?: Stack;
+    style?: ParentDataLabel;
+    events?: ParentDataLabel;
     animate?: VictoryAnimationProps;
+    categories?: string[] | PerAxis<string[]>;
   }
 
   class VictoryLine extends React.Component<VictoryLineProps, void> {
