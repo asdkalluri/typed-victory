@@ -78,6 +78,8 @@ declare namespace Victory {
       'linear' | 'linearClosed' | 'monotoneX' | 'monotoneY' |
       'natural' | 'radial' | 'step' | 'stepAfter' | 'stepBefore';
 
+  type Scale = 'linear' | 'time' | 'log' | 'sqrt' | ScaleFunction;
+
   type DataAccessor = string | string[] | ((data: any[]) => number) | number; // integer non-negative
 
   interface VictoryLineProps {
@@ -91,7 +93,7 @@ declare namespace Victory {
     height?: number; // Non-negative
     samples?: number; // Non-negative
     interpolation?: Interpolation;
-    scale?: 'linear' | 'time' | 'log' | 'sqrt' | ScaleFunction;
+    scale?: Scale | PerAxis<Scale>;
     label?: string | number | React.Component<void, void>; // UNCLEAR Label and too constrained now
     standalone?: boolean;
     style?: ParentDataLabel;
