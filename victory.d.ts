@@ -6,9 +6,10 @@
 declare namespace Victory {
   import React = __React;
 
+  /* Common */
   interface PerAxis<T> {
-    x: T;
-    y: T;
+    x?: T;
+    y?: T;
   }
 
   interface ScaleFunction { // Unclear, see d3 typings
@@ -16,6 +17,8 @@ declare namespace Victory {
     domain: Function;
     range: Function;
   }
+
+  type Padding = number | { top?: number, bottom?: number, left?: number, right?: number }; // UNCLEAR Maybe not optional
 
   /* VictoryAnimate */
   interface VictoryAnimationProps {
@@ -33,13 +36,14 @@ declare namespace Victory {
   /* VictoryChart */
   interface VictoryChartProps {
     animate?: VictoryAnimationProps;
-    domain?: Custom|Shape;
-    domainPadding?: Custom|Shape;
-    // events
-    width?: Custom;
-    height?: Custom;
-    padding?: number|Shape;
-    scale?: Custom|Shape;
+    children?: ReactNode | ReactNode[];
+    domain?: number[] | PerAxis<number[]>; // Two unique
+    domainPadding?: number | PerAxis<number>; // Non-negative
+    events?: any; // UNCLEAR
+    width?: number; // Non-negative
+    height?: number; // Non-negative
+    padding?: Padding;
+    scale?: Scale | PerAxis<Scale>;
     standalone?: boolean;
     style?: ParentDataLabel;
   }
@@ -60,6 +64,7 @@ declare namespace Victory {
 
   type Custom = any; // UNCLEAR
   type Shape = any; // UNCLEAR
+  type ReactNode = any; // UNCLEAR
 
   type Easing =
       'back' | 'backIn' | 'backOut' | 'backInOut' | 'bounce' | 'bounceIn' |
@@ -82,13 +87,14 @@ declare namespace Victory {
 
   type DataAccessor = string | string[] | ((data: any[]) => number) | number; // integer non-negative
 
+
   interface VictoryLineProps {
     data?: any[];
     dataComponent?: React.Component<VictoryLineProps, void>; // Prop unclear
     x?: DataAccessor;
     y?: DataAccessor;
     domain?: number[] | PerAxis<number[]>; // Two unique
-    padding?: number | { top?: number, bottom?: number, left?: number, right?: number }; // UNCLEAR Maybe not optional
+    padding?: Padding;
     width?: number; // Non-negative
     height?: number; // Non-negative
     samples?: number; // Non-negative
