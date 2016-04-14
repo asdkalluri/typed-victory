@@ -113,24 +113,24 @@ declare namespace Victory {
 
   /* VictoryAxis */
   interface VictoryAxisProps {
-    animate: VictoryAnimationProps;
-    crossAxis: boolean;
-    dependentAxis: boolean;
-    domain: any; // TODO
-    events: any; // TODO
-    height: number;
-    label: any; // TODO
-    offsetX: number;
-    offsetY: number;
-    orientation: 'top' | 'bottom' | 'left' | 'right';
-    padding: Padding;
-    scale: Scale;
-    standalone: boolean;
-    style: any; // TODO
-    tickCount: any; // TODO
-    tickFormat: any; // TODO
-    tickValues: any; // TODO
-    width: number; // TODO
+    animate?: VictoryAnimationProps;
+    crossAxis?: boolean;
+    dependentAxis?: boolean;
+    domain?: any; // TODO
+    events?: any; // TODO
+    height?: number;
+    label?: any; // TODO
+    offsetX?: number;
+    offsetY?: number;
+    orientation?: 'top' | 'bottom' | 'left' | 'right';
+    padding?: Padding;
+    scale?: Scale;
+    standalone?: boolean;
+    style?: any; // TODO
+    tickCount?: any; // TODO
+    tickFormat?: any; // TODO
+    tickValues?: any; // TODO
+    width?: number; // TODO
   }
 
   class VictoryAxis extends React.Component<VictoryAxisProps, void> {
