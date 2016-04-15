@@ -135,6 +135,33 @@ declare namespace Victory {
 
   class VictoryAxis extends React.Component<VictoryAxisProps, void> {
   }
+
+  /* VictoryArea */
+  interface VictoryAreaProps {
+    animate?: VictoryAnimationProps;
+    colorScale?: string | string[];
+    data?: any[] | any[][];
+    dataAttributes?: any; // UNCLEAR
+    domain?: number[] | PerAxis<number[]>; // Two unique
+    events?: ParentDataLabel;
+    height?: number; // Non-negative
+    interpolation?: Interpolation;
+    label?: string;
+    labelComponent?: string | number | React.Component<void, void>; // UNCLEAR Label and too constrained now
+    padding?: Padding;
+    samples?: number; // Non-negative
+    categories?: string[] | PerAxis<string[]>;
+    scale?: Scale | PerAxis<Scale>;
+    stacked?: boolean;
+    standalone?: boolean;
+    style?: ParentDataLabel;
+    width?: number; // Non-negative
+    x?: DataAccessor;
+    y?: DataAccessor;
+  }
+
+  class VictoryArea extends React.Component<VictoryAreaProps, void> {
+  }
 }
 
 export = Victory;
