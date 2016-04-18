@@ -53,9 +53,9 @@ declare namespace Victory {
 
   /* VictoryLine */
   interface ParentDataLabel {
-    parent: React.Component<void, void>; // UNCLEAR
-    data: React.Component<void, void>; // UNCLEAR
-    labels: React.Component<void, void>; // UNCLEAR
+    parent?: React.Component<void, void>; // UNCLEAR
+    data?: React.Component<void, void>; // UNCLEAR
+    labels?: React.Component<void, void>; // UNCLEAR
   }
 
   interface EventHandler {
