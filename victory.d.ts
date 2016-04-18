@@ -53,9 +53,9 @@ declare namespace Victory {
 
   /* VictoryLine */
   interface ParentDataLabel {
-    parent?: React.Component<void, void>; // UNCLEAR
-    data?: React.Component<void, void>; // UNCLEAR
-    labels?: React.Component<void, void>; // UNCLEAR
+    parent?: StyleInline;
+    data?: StyleInline;
+    labels?: StyleInline;
   }
 
   interface EventHandler {
@@ -65,6 +65,7 @@ declare namespace Victory {
   type Custom = any; // UNCLEAR
   type Shape = any; // UNCLEAR
   type ReactNode = any; // UNCLEAR
+  type StyleInline = any; // UNCLEAR
 
   type Easing =
       'back' | 'backIn' | 'backOut' | 'backInOut' | 'bounce' | 'bounceIn' |
