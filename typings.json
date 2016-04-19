@@ -1,6 +1,6 @@
 {
   "name": "victory",
-  "version": "0.5.1",
+  "version": "0.6.0",
   "main": "victory.d.ts",
   "author": "Alex Pyzhianov",
   "ambient": false,
