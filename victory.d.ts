@@ -137,12 +137,15 @@ declare namespace Victory {
   class VictoryAxis extends React.Component<VictoryAxisProps, void> {
   }
 
-  /* VictoryArea */
+  /* VictoryArea 0.6.0, source ordered */
+  class VictoryArea extends React.Component<VictoryAreaProps, void> {
+  }
+
   interface VictoryAreaProps {
     animate?: VictoryAnimationProps;
-    colorScale?: string | string[]; // TODO: find builtin strings
-    data?: any[] | any[][];
-    dataAttributes?: any; // UNCLEAR
+    categories?: string[] | PerAxis<string[]>;
+    data?: any[] | any[][]; // Is array of arrays still valid
+    dataComponent?: React.ReactElement<DataComponentProps>;
     domain?: number[] | PerAxis<number[]>; // Two unique
     events?: ParentDataLabel;
     height?: number; // Non-negative
@@ -151,9 +154,7 @@ declare namespace Victory {
     labelComponent?: string | number | React.Component<void, void>; // UNCLEAR Label and too constrained now
     padding?: Padding;
     samples?: number; // Non-negative
-    categories?: string[] | PerAxis<string[]>;
     scale?: Scale | PerAxis<Scale>;
-    stacked?: boolean;
     standalone?: boolean;
     style?: ParentDataLabel;
     width?: number; // Non-negative
@@ -161,7 +162,12 @@ declare namespace Victory {
     y?: DataAccessor;
   }
 
-  class VictoryArea extends React.Component<VictoryAreaProps, void> {
+  interface DataComponentProps {
+    data: any[];
+    interpolation: Interpolation;
+    scale: Scale | PerAxis<Scale>;
+    style: any; // TODO
+    events: any; // TODO
   }
 
   /* Victory Bar */
