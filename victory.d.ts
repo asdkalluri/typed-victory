@@ -45,17 +45,17 @@ declare namespace Victory {
     padding?: Padding;
     scale?: Scale | PerAxis<Scale>;
     standalone?: boolean;
-    style?: ParentDataLabel;
+    style?: ParentDataLabels<StyleInline>;
   }
 
   class VictoryChart extends React.Component<VictoryChartProps, void> {
   }
 
   /* VictoryLine */
-  interface ParentDataLabel {
-    parent?: StyleInline;
-    data?: StyleInline;
-    labels?: StyleInline;
+  interface ParentDataLabels<T> {
+    parent?: T;
+    data?: T;
+    labels?: T;
   }
 
   interface EventHandler {
@@ -65,7 +65,9 @@ declare namespace Victory {
   type Custom = any; // UNCLEAR
   type Shape = any; // UNCLEAR
   type ReactNode = any; // UNCLEAR
+  type ReactElement = any; // UNCLEAR
   type StyleInline = any; // UNCLEAR
+  type VictoryEvent = any; // UNCLEAR
 
   type Easing =
       'back' | 'backIn' | 'backOut' | 'backInOut' | 'bounce' | 'bounceIn' |
@@ -85,6 +87,8 @@ declare namespace Victory {
       'natural' | 'radial' | 'step' | 'stepAfter' | 'stepBefore';
 
   type Scale = 'linear' | 'time' | 'log' | 'sqrt' | ScaleFunction;
+  type ColorScale = string[] | 'greyscale' | 'qualitative' | 'heatmap' |
+                    'warm' | 'cool' | 'red' | 'green' | 'blue';
 
   type DataAccessor = string | string[] | ((data: any[]) => number) | number; // integer non-negative
 
@@ -103,8 +107,8 @@ declare namespace Victory {
     scale?: Scale | PerAxis<Scale>;
     label?: string | number | React.Component<void, void>; // UNCLEAR Label and too constrained now
     standalone?: boolean;
-    style?: ParentDataLabel;
-    events?: ParentDataLabel;
+    style?: ParentDataLabels<StyleInline>;
+    events?: ParentDataLabels<VictoryEvent>;
     animate?: VictoryAnimationProps;
     categories?: string[] | PerAxis<string[]>;
   }
@@ -137,6 +141,29 @@ declare namespace Victory {
   class VictoryAxis extends React.Component<VictoryAxisProps, void> {
   }
 
+  /* VictoryStack */
+  class VictoryStack extends React.Component<VictoryStackProps, void> {
+  }
+
+  interface VictoryStackProps {
+    animate?: VictoryAnimationProps;
+    categories?: string[] | PerAxis<string[]>;
+    children?: ReactNode | ReactNode[];
+    colorScale?: ColorScale;
+    domain?: number[] | PerAxis<number[]>; // Two unique
+    domainPadding?: number | PerAxis<number>; // Non-negative
+    height?: number; // Non-negative
+    horizontal?: boolean;
+    labels?: string[] | Function; // TODO: not specific enough
+    labelComponent?: ReactElement;
+    padding?: Padding;
+    scale?: Scale;
+    standalone?: boolean;
+    style?: ParentDataLabels<StyleInline>;
+    width?: number; // Non-negative
+    xOffset?: number;
+  }
+
   /* VictoryArea 0.6.0, source ordered */
   class VictoryArea extends React.Component<VictoryAreaProps, void> {
   }
@@ -147,7 +174,7 @@ declare namespace Victory {
     data?: any[] | any[][]; // Is array of arrays still valid
     dataComponent?: React.ReactElement<DataComponentProps>;
     domain?: number[] | PerAxis<number[]>; // Two unique
-    events?: ParentDataLabel;
+    events?: ParentDataLabels<VictoryEvent>;
     height?: number; // Non-negative
     interpolation?: Interpolation;
     label?: string;
@@ -156,7 +183,7 @@ declare namespace Victory {
     samples?: number; // Non-negative
     scale?: Scale | PerAxis<Scale>;
     standalone?: boolean;
-    style?: ParentDataLabel;
+    style?: ParentDataLabels<StyleInline>;
     width?: number; // Non-negative
     x?: DataAccessor;
     y?: DataAccessor;
@@ -179,7 +206,7 @@ declare namespace Victory {
     colorScale?: string | string[]; // TODO: find builtin strings
     domain?: number[] | PerAxis<number[]>; // Two unique
     domainPadding?: number | PerAxis<number>; // Non-negative
-    events?: ParentDataLabel;
+    events?: ParentDataLabels<VictoryEvent>;
     grouped?: boolean;
     height?: number; // Non-negative
     horizontal?: boolean;
@@ -189,7 +216,7 @@ declare namespace Victory {
     scale?: Scale | PerAxis<Scale>;
     stacked?: boolean;
     standalone?: boolean;
-    style?: ParentDataLabel;
+    style?: ParentDataLabels<StyleInline>;
     width?: number; // Non-negative
     x?: DataAccessor;
     y?: DataAccessor;
