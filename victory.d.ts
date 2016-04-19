@@ -102,7 +102,7 @@ declare namespace Victory {
     animate?: VictoryAnimationProps;
     categories?: string[] | PerAxis<string[]>;
     data?: any[];
-    dataComponent?: React.Component<VictoryLineProps, void>; // Prop unclear
+    dataComponent?: ReactElement;
     domain?: number[] | PerAxis<number[]>; // Two unique
     events?: ParentDataLabels<VictoryEvent>;
     height?: number; // Non-negative
@@ -174,7 +174,7 @@ declare namespace Victory {
     animate?: VictoryAnimationProps;
     categories?: string[] | PerAxis<string[]>;
     data?: any[] | any[][]; // Is array of arrays still valid
-    dataComponent?: React.ReactElement<DataComponentProps>;
+    dataComponent?: ReactElement;
     domain?: number[] | PerAxis<number[]>; // Two unique
     events?: ParentDataLabels<VictoryEvent>;
     height?: number; // Non-negative
