@@ -29,6 +29,14 @@ declare namespace Victory {
     labels?: T;
   }
 
+  interface DataComponentProps {
+    data: any[];
+    interpolation: Interpolation;
+    scale: Scale | PerAxis<Scale>;
+    style: any; // TODO
+    events: any; // TODO
+  }
+
   interface EventHandler {
     (event: Event, props: any[], index: number): void;
   }
@@ -102,12 +110,12 @@ declare namespace Victory {
     animate?: VictoryAnimationProps;
     categories?: string[] | PerAxis<string[]>;
     data?: any[];
-    dataComponent?: ReactElement;
+    dataComponent?: React.ReactElement<DataComponentProps>;
     domain?: number[] | PerAxis<number[]>; // Two unique
     events?: ParentDataLabels<VictoryEvent>;
     height?: number; // Non-negative
     interpolation?: Interpolation;
-    label?: string | number | React.Component<void, void>; // UNCLEAR Label and too constrained now
+    label?: string | number | React.ReactElement<any>; // UNCLEAR Label and too constrained now
     padding?: Padding;
     samples?: number; // Non-negative
     scale?: Scale | PerAxis<Scale>;
@@ -174,13 +182,13 @@ declare namespace Victory {
     animate?: VictoryAnimationProps;
     categories?: string[] | PerAxis<string[]>;
     data?: any[] | any[][]; // Is array of arrays still valid
-    dataComponent?: ReactElement;
+    dataComponent?: React.ReactElement<DataComponentProps>;
     domain?: number[] | PerAxis<number[]>; // Two unique
     events?: ParentDataLabels<VictoryEvent>;
     height?: number; // Non-negative
     interpolation?: Interpolation;
     label?: string;
-    labelComponent?: string | number | React.Component<void, void>; // UNCLEAR Label and too constrained now
+    labelComponent?: string | number | React.ReactElement<any>; // UNCLEAR Label and too constrained now
     padding?: Padding;
     samples?: number; // Non-negative
     scale?: Scale | PerAxis<Scale>;
@@ -189,14 +197,6 @@ declare namespace Victory {
     width?: number; // Non-negative
     x?: DataAccessor;
     y?: DataAccessor;
-  }
-
-  interface DataComponentProps {
-    data: any[];
-    interpolation: Interpolation;
-    scale: Scale | PerAxis<Scale>;
-    style: any; // TODO
-    events: any; // TODO
   }
 
   /* Victory Bar */
@@ -216,7 +216,7 @@ declare namespace Victory {
     height?: number; // Non-negative
     horizontal?: boolean;
     labels?: string[]; // UNCLEAR
-    labelComponent?: string | number | React.Component<void, void>; // UNCLEAR Label and too constrained now
+    labelComponent?: string | number | React.ReactElement<any>; // UNCLEAR Label and too constrained now
     padding?: Padding;
     scale?: Scale | PerAxis<Scale>;
     stacked?: boolean;
