@@ -161,7 +161,7 @@ declare namespace Victory {
     labels?: string[] | Function; // TODO: not specific enough
     labelComponent?: ReactElement;
     padding?: Padding;
-    scale?: Scale;
+    scale?: Scale | PerAxis<Scale>;
     standalone?: boolean;
     style?: ParentDataLabels<StyleInline>;
     width?: number; // Non-negative
