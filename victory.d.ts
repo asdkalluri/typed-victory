@@ -1,4 +1,8 @@
-// Type definitions for victory
+/*
+WARNING: PROJECT IN DEVELOPMENT
+*/
+
+// Type definitions for victory@0.6.0
 // Project: https://github.com/FormidableLabs/victory
 // Definitions by: Alex Pyzhianov <https://github.com/SereznoKot>
 // Definitions: https://github.com/borisyankov/DefinitelyTyped
@@ -141,7 +145,7 @@ declare namespace Victory {
   class VictoryAxis extends React.Component<VictoryAxisProps, void> {
   }
 
-  /* VictoryStack */
+  /* VictoryStack 0.6.0, source ordered */
   class VictoryStack extends React.Component<VictoryStackProps, void> {
   }
 
