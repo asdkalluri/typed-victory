@@ -10,52 +10,19 @@ WARNING: PROJECT IN DEVELOPMENT
 declare namespace Victory {
   import React = __React;
 
+  type Custom = any; // UNCLEAR
+  type Shape = any; // UNCLEAR
+  type ReactNode = any; // UNCLEAR
+  type ReactElement = any; // UNCLEAR
+  type StyleInline = any; // UNCLEAR
+  type VictoryEvent = any; // UNCLEAR
+
   /* Common */
   interface PerAxis<T> {
     x?: T;
     y?: T;
   }
 
-  interface ScaleFunction { // Unclear, see d3 typings
-    copy: Function;
-    domain: Function;
-    range: Function;
-  }
-
-  type Padding = number | { top?: number, bottom?: number, left?: number, right?: number }; // UNCLEAR Maybe not optional
-
-  /* VictoryAnimate */
-  interface VictoryAnimationProps {
-    // children: ???
-    duration?: number;
-    easing?: Easing;
-    delay?: number;
-    onEnd?: Function;
-    data?: any[]; // UNCLEAR
-  }
-
-  class VictoryAnimation extends React.Component<VictoryAnimationProps, void> {
-  }
-
-  /* VictoryChart */
-  interface VictoryChartProps {
-    animate?: VictoryAnimationProps;
-    children?: ReactNode | ReactNode[];
-    domain?: number[] | PerAxis<number[]>; // Two unique
-    domainPadding?: number | PerAxis<number>; // Non-negative
-    events?: any; // UNCLEAR
-    width?: number; // Non-negative
-    height?: number; // Non-negative
-    padding?: Padding;
-    scale?: Scale | PerAxis<Scale>;
-    standalone?: boolean;
-    style?: ParentDataLabels<StyleInline>;
-  }
-
-  class VictoryChart extends React.Component<VictoryChartProps, void> {
-  }
-
-  /* VictoryLine */
   interface ParentDataLabels<T> {
     parent?: T;
     data?: T;
@@ -66,12 +33,11 @@ declare namespace Victory {
     (event: Event, props: any[], index: number): void;
   }
 
-  type Custom = any; // UNCLEAR
-  type Shape = any; // UNCLEAR
-  type ReactNode = any; // UNCLEAR
-  type ReactElement = any; // UNCLEAR
-  type StyleInline = any; // UNCLEAR
-  type VictoryEvent = any; // UNCLEAR
+  interface ScaleFunction { // Unclear, see d3 typings
+    copy: Function;
+    domain: Function;
+    range: Function;
+  }
 
   type Easing =
       'back' | 'backIn' | 'backOut' | 'backInOut' | 'bounce' | 'bounceIn' |
@@ -95,7 +61,42 @@ declare namespace Victory {
                     'warm' | 'cool' | 'red' | 'green' | 'blue';
 
   type DataAccessor = string | string[] | ((data: any[]) => number) | number; // integer non-negative
+  type Padding = number | { top?: number, bottom?: number, left?: number, right?: number }; // UNCLEAR Maybe not optional
 
+  /* VictoryAnimate */
+  class VictoryAnimation extends React.Component<VictoryAnimationProps, void> {
+  }
+
+  interface VictoryAnimationProps {
+    // children: ???
+    duration?: number;
+    easing?: Easing;
+    delay?: number;
+    onEnd?: Function;
+    data?: any[]; // UNCLEAR
+  }
+
+  /* VictoryChart */
+  class VictoryChart extends React.Component<VictoryChartProps, void> {
+  }
+
+  interface VictoryChartProps {
+    animate?: VictoryAnimationProps;
+    children?: ReactNode | ReactNode[];
+    domain?: number[] | PerAxis<number[]>; // Two unique
+    domainPadding?: number | PerAxis<number>; // Non-negative
+    events?: any; // UNCLEAR
+    width?: number; // Non-negative
+    height?: number; // Non-negative
+    padding?: Padding;
+    scale?: Scale | PerAxis<Scale>;
+    standalone?: boolean;
+    style?: ParentDataLabels<StyleInline>;
+  }
+
+  /* VictoryLine */
+  class VictoryLine extends React.Component<VictoryLineProps, void> {
+  }
 
   interface VictoryLineProps {
     data?: any[];
@@ -117,10 +118,10 @@ declare namespace Victory {
     categories?: string[] | PerAxis<string[]>;
   }
 
-  class VictoryLine extends React.Component<VictoryLineProps, void> {
+  /* VictoryAxis */
+  class VictoryAxis extends React.Component<VictoryAxisProps, void> {
   }
 
-  /* VictoryAxis */
   interface VictoryAxisProps {
     animate?: VictoryAnimationProps;
     crossAxis?: boolean;
@@ -140,9 +141,6 @@ declare namespace Victory {
     tickFormat?: any; // TODO
     tickValues?: any; // TODO
     width?: number; // TODO
-  }
-
-  class VictoryAxis extends React.Component<VictoryAxisProps, void> {
   }
 
   /* VictoryStack 0.6.0, source ordered */
@@ -202,6 +200,9 @@ declare namespace Victory {
   }
 
   /* Victory Bar */
+  class VictoryBar extends React.Component<VictoryBarProps, void> {
+  }
+
   interface VictoryBarProps {
     animate?: VictoryAnimationProps;
     data?: any[] | any[][];
@@ -224,9 +225,6 @@ declare namespace Victory {
     width?: number; // Non-negative
     x?: DataAccessor;
     y?: DataAccessor;
-  }
-
-  class VictoryBar extends React.Component<VictoryBarProps, void> {
   }
 }
 
