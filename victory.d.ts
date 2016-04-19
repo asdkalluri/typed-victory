@@ -94,28 +94,28 @@ declare namespace Victory {
     style?: ParentDataLabels<StyleInline>;
   }
 
-  /* VictoryLine */
+  /* VictoryLine 0.6.0, source ordered */
   class VictoryLine extends React.Component<VictoryLineProps, void> {
   }
 
   interface VictoryLineProps {
-    data?: any[];
-    dataComponent?: React.Component<VictoryLineProps, void>; // Prop unclear
-    x?: DataAccessor;
-    y?: DataAccessor;
-    domain?: number[] | PerAxis<number[]>; // Two unique
-    padding?: Padding;
-    width?: number; // Non-negative
-    height?: number; // Non-negative
-    samples?: number; // Non-negative
-    interpolation?: Interpolation;
-    scale?: Scale | PerAxis<Scale>;
-    label?: string | number | React.Component<void, void>; // UNCLEAR Label and too constrained now
-    standalone?: boolean;
-    style?: ParentDataLabels<StyleInline>;
-    events?: ParentDataLabels<VictoryEvent>;
     animate?: VictoryAnimationProps;
     categories?: string[] | PerAxis<string[]>;
+    data?: any[];
+    dataComponent?: React.Component<VictoryLineProps, void>; // Prop unclear
+    domain?: number[] | PerAxis<number[]>; // Two unique
+    events?: ParentDataLabels<VictoryEvent>;
+    height?: number; // Non-negative
+    interpolation?: Interpolation;
+    label?: string | number | React.Component<void, void>; // UNCLEAR Label and too constrained now
+    padding?: Padding;
+    samples?: number; // Non-negative
+    scale?: Scale | PerAxis<Scale>;
+    standalone?: boolean;
+    style?: ParentDataLabels<StyleInline>;
+    width?: number; // Non-negative
+    x?: DataAccessor;
+    y?: DataAccessor;
   }
 
   /* VictoryAxis */
