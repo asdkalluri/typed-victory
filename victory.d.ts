@@ -16,6 +16,7 @@ declare namespace Victory {
   type ReactElement = any; // UNCLEAR
   type StyleInline = any; // UNCLEAR
   type VictoryEvent = any; // UNCLEAR
+  type Transform = any;
 
   /* Common */
   interface PerAxis<T> {
@@ -82,6 +83,29 @@ declare namespace Victory {
     delay?: number;
     onEnd?: Function;
     data?: any[]; // UNCLEAR
+  }
+
+  /* VictoryLabel */
+  class VictoryLabel extends React.Component<VictoryLabelProps, void> {
+  }
+
+  interface VictoryLabelProps {
+    angle?: string | number;
+    capHeight?: string | number | Function;
+    datum?: any;
+    data?: any[];
+    events?: VictoryEvent;
+    text?: string | number | Function;
+    children?: string | number | Function;
+    lineHeight?: string | number | Function;
+    style?: StyleInline;
+    textAnchor?: 'start' | 'middle' | 'end' | 'inherit' | Function;
+    verticalAnchor?: 'start' | 'middle' | 'end' | Function;
+    transform?: string | Transform | Function; // UNCLEAR
+    x?: number;
+    y?: number;
+    dx?: number | string | Function;
+    dy?: number | string | Function;
   }
 
   /* VictoryChart */
