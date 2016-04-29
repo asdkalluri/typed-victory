@@ -115,7 +115,7 @@ declare namespace Victory {
   interface VictoryChartProps {
     animate?: VictoryAnimationProps;
     children?: ReactNode | ReactNode[];
-    domain?: number[] | PerAxis<number[]>; // Two unique
+    domain?: any[] | PerAxis<any[]>; // Two unique
     domainPadding?: number | PerAxis<number>; // Non-negative
     events?: any; // UNCLEAR
     width?: number; // Non-negative
@@ -135,7 +135,7 @@ declare namespace Victory {
     categories?: string[] | PerAxis<string[]>;
     data?: any[];
     dataComponent?: React.ReactElement<DataComponentProps>;
-    domain?: number[] | PerAxis<number[]>; // Two unique
+    domain?: any[] | PerAxis<any[]>; // Two unique
     events?: ParentDataLabels<VictoryEvent>;
     height?: number; // Non-negative
     interpolation?: Interpolation;
@@ -184,7 +184,7 @@ declare namespace Victory {
     categories?: string[] | PerAxis<string[]>;
     children?: ReactNode | ReactNode[];
     colorScale?: ColorScale;
-    domain?: number[] | PerAxis<number[]>; // Two unique
+    domain?: any[] | PerAxis<any[]>; // Two unique
     domainPadding?: number | PerAxis<number>; // Non-negative
     height?: number; // Non-negative
     horizontal?: boolean;
@@ -207,7 +207,7 @@ declare namespace Victory {
     categories?: string[] | PerAxis<string[]>;
     data?: any[] | any[][]; // Is array of arrays still valid
     dataComponent?: React.ReactElement<DataComponentProps>;
-    domain?: number[] | PerAxis<number[]>; // Two unique
+    domain?: any[] | PerAxis<any[]>; // Two unique
     events?: ParentDataLabels<VictoryEvent>;
     height?: number; // Non-negative
     interpolation?: Interpolation;
@@ -233,7 +233,7 @@ declare namespace Victory {
     dataAttributes?: any; // UNCLEAR
     categories?: string[] | number[] | string[][] | number[][];
     colorScale?: string | string[]; // TODO: find builtin strings
-    domain?: number[] | PerAxis<number[]>; // Two unique
+    domain?: any[] | PerAxis<any[]>; // Two unique
     domainPadding?: number | PerAxis<number>; // Non-negative
     events?: ParentDataLabels<VictoryEvent>;
     grouped?: boolean;
