@@ -70,7 +70,14 @@ declare namespace Victory {
                     'warm' | 'cool' | 'red' | 'green' | 'blue';
 
   type DataAccessor = string | string[] | ((data: any[]) => number) | number; // integer non-negative
-  type Padding = number | { top?: number, bottom?: number, left?: number, right?: number }; // UNCLEAR Maybe not optional
+  type Padding = number | SidesPadding;
+
+  interface SidesPadding {
+    top?: number;
+    bottom?: number;
+    left?: number;
+    right?: number;
+  }
 
   /* VictoryAnimate */
   class VictoryAnimation extends React.Component<VictoryAnimationProps, void> {
