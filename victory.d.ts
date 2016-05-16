@@ -180,7 +180,7 @@ declare namespace Victory {
     style?: any; // TODO
     tickComponent?: React.ReactElement<any>;
     tickCount?: any; // TODO
-    tickLabelComponent: React.ReactElement<any>;
+    tickLabelComponent?: React.ReactElement<any>;
     tickFormat?: any; // TODO
     tickValues?: any; // TODO
     width?: number; // TODO
