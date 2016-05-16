@@ -157,12 +157,14 @@ declare namespace Victory {
     y?: DataAccessor;
   }
 
-  /* VictoryAxis */
+  /* VictoryAxis 0.6.0 source ordered */
   class VictoryAxis extends React.Component<VictoryAxisProps, void> {
   }
 
   interface VictoryAxisProps {
     animate?: VictoryAnimationProps;
+    axisComponent?: React.ReactElement<any>;
+    axisLabelComponent?: React.ReactElement<any>;
     crossAxis?: boolean;
     dependentAxis?: boolean;
     domain?: any; // TODO
@@ -176,7 +178,9 @@ declare namespace Victory {
     scale?: Scale;
     standalone?: boolean;
     style?: any; // TODO
+    tickComponent?: React.ReactElement<any>;
     tickCount?: any; // TODO
+    tickLabelComponent: React.ReactElement<any>;
     tickFormat?: any; // TODO
     tickValues?: any; // TODO
     width?: number; // TODO
