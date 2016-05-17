@@ -42,11 +42,7 @@ declare namespace Victory {
     (event: Event, props: any[], index: number): void;
   }
 
-  interface ScaleFunction { // Unclear, see d3 typings
-    copy: Function;
-    domain: Function;
-    range: Function;
-  }
+  type ScaleFunction = Function; // specify further
 
   type Easing =
       'back' | 'backIn' | 'backOut' | 'backInOut' | 'bounce' | 'bounceIn' |
