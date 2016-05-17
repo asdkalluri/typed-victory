@@ -129,7 +129,7 @@ declare namespace Victory {
     style?: ParentDataLabels<StyleInline>;
   }
 
-  /* VictoryLine 0.6.0, source ordered */
+  /* VictoryLine 0.7.0, source ordered */
   class VictoryLine extends React.Component<VictoryLineProps, void> {
   }
 
@@ -142,7 +142,8 @@ declare namespace Victory {
     events?: ParentDataLabels<VictoryEvent>;
     height?: number; // Non-negative
     interpolation?: Interpolation;
-    label?: string | number | React.ReactElement<any>; // UNCLEAR Label and too constrained now
+    label?: string | number; // UNCLEAR Label and too constrained now
+    labelComponent?: React.ReactElement<any>;
     padding?: Padding;
     samples?: number; // Non-negative
     scale?: Scale | PerAxis<Scale>;
