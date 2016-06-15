@@ -231,27 +231,26 @@ declare namespace Victory {
     y?: DataAccessor;
   }
 
-  /* Victory Bar */
+  /* Victory Bar 0.8.0 */
   class VictoryBar extends React.Component<VictoryBarProps, void> {
   }
 
   interface VictoryBarProps {
     animate?: VictoryAnimationProps;
-    data?: any[] | any[][];
-    dataAttributes?: any; // UNCLEAR
     categories?: string[] | number[] | string[][] | number[][];
-    colorScale?: string | string[]; // TODO: find builtin strings
+    data?: any[] | any[][];
+    dataComponent?: ReactElement;
     domain?: any[] | PerAxis<any[]>; // Two unique
-    domainPadding?: number | PerAxis<number>; // Non-negative
     events?: ParentDataLabels<VictoryEvent>;
-    grouped?: boolean;
+    name?: string;
+    eventKey?: any; // TODO
+    sharedEvents?: any; // TODO
     height?: number; // Non-negative
     horizontal?: boolean;
     labels?: string[]; // UNCLEAR
     labelComponent?: string | number | React.ReactElement<any>; // UNCLEAR Label and too constrained now
     padding?: Padding;
     scale?: Scale | PerAxis<Scale>;
-    stacked?: boolean;
     standalone?: boolean;
     style?: ParentDataLabels<StyleInline>;
     width?: number; // Non-negative
