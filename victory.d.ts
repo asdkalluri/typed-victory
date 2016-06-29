@@ -75,17 +75,17 @@ declare namespace Victory {
     right?: number;
   }
 
-  /* VictoryAnimate */
+  /* VictoryAnimate 0.9.0 */
   class VictoryAnimation extends React.Component<VictoryAnimationProps, void> {
   }
 
   interface VictoryAnimationProps {
-    // children: ???
+    children?: Function;
     duration?: number;
     easing?: Easing;
     delay?: number;
     onEnd?: Function;
-    data?: any[]; // UNCLEAR
+    data?: any | any[]; // UNCLEAR
   }
 
   /* VictoryLabel */
