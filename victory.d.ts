@@ -129,6 +129,35 @@ declare namespace Victory {
     style?: ParentDataLabels<StyleInline>;
   }
 
+  /* VictoryPie */
+  class VictoryPie extends React.Component<VictoryPieProps, void> {
+  }
+
+  interface VictoryPieProps {
+    animate?: VictoryAnimationProps;
+	colorScale?: any[];
+	data?: any[];
+	dataComponent?: React.ReactElement<DataComponentProps>;
+	endAngle?: number;
+	events?: ParentDataLabels<VictoryEvent>;
+	name?: string;
+	eventKey?: any;
+	sharedEvents?: any;
+	height?: number; // Non-negative
+	innerRadius?: number; // Non-negative
+	cornerRadius?: number; // Non-negative
+	labelComponent?: React.ReactElement<any>;
+	labels?: string[] | Function;
+	padAngle?: number; // Non-negative
+	padding?: Padding;
+	standalone?: boolean;
+	startAngle?: number;
+	style?: ParentDataLabels<StyleInline>;
+	width?: number; // Non-negative
+    x?: DataAccessor;
+    y?: DataAccessor;
+  }
+  
   /* VictoryLine 0.7.0, source ordered */
   class VictoryLine extends React.Component<VictoryLineProps, void> {
   }
